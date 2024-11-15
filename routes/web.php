@@ -12,6 +12,7 @@ Route::get('/', function () {
 Route::get('/admin/dashboard', [DashboardAdminController::class, 'index'])->name('dashboard');
 Route::get('/admin/dashboard/user', [DashboardAdminController::class, 'user']);
 // Route::get('/admin/dashboard/user/list', [DashboardAdminController::class, 'list_user']);
+// Route::get('/admin/dashboard/user/list', [MahasiswaResouceController::class, 'index']);
 Route::get('/admin/dashboard/user/list', [MahasiswaResouceController::class, 'index']);
 Route::get('/admin/dashboard/user/create', [MahasiswaResouceController::class, 'create']);
 Route::post('/admin/dashboard/user/store', [MahasiswaResouceController::class, 'store'])->name('admin.user.store');

@@ -17,4 +17,8 @@ class Mahasiswa extends Model
         'nim',
         'tanggal_lahir'
     ];
+
+    public function dosen () {
+        return $this->belongsTo(Dosen::class, 'id_dpa', 'id');
+    }
 }

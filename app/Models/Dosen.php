@@ -10,11 +10,15 @@ class Dosen extends Model
     use HasFactory;
 
     // isi nilai nama table sesuai database
-    protected $table = 'mahasiswa';
+    protected $table = 'dosen';
 
     protected $fillable = [
         'nama',
         'nim',
         'tanggal_lahir'
     ];
+
+    // public function mahasiswa () {
+    //     return $this->belongsTo(Mahasiswa::class, 'id_dpa');
+    // }
 }

@@ -10,19 +10,35 @@ class MahasiswaSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
-    {
-        DB::table('mahasiswa')->insert([[
-            'nama' => 'Athar',
-            'nim' => '232410102064',
-            'tanggal_lahir' => '2004-11-09'
-        ], [
-            'nama' => 'Lutfi',
-            'nim' => '232410102035',
-            'tanggal_lahir' => '2003-07-24'
-        ]]);
+    // public function run(): void
+    // {
+    //     DB::table('mahasiswa')->insert([[
+    //         'nama' => 'Athar',
+    //         'nim' => '232410102064',
+    //         'tanggal_lahir' => '2004-11-09'
+    //     ], [
+    //         'nama' => 'Lutfi',
+    //         'nim' => '232410102035',
+    //         'tanggal_lahir' => '2003-07-24'
+    //     ]]);
 
-        $this->deleteMahasiswa('232410102018');
+    //     $this->deleteMahasiswa('232410102018');
+    // }
+
+    
+    public function run()
+    {
+        $this->updateIdDpa('232410102064');
+        $this->updateIdDpa('232410102035');
+    }
+
+    private function updateIdDpa($nim)
+    {
+        $mahasiswa = DB::table('mahasiswa')
+            ->where('nim', $nim)
+            ->update([
+                'id_dpa' => 1,
+            ]);
     }
 
     private function checkMahasiswaByNim($nim)

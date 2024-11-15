@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Mahasiswa;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dosen;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,15 @@ class MahasiswaResouceController extends Controller
      */
     public function index()
     {
+        //Cara 1 mencari data
+        // select * from mahasiswa where id 1
+        $mahasiswa = Mahasiswa::where('id',1)->first();
+        
+        //Cara 2
+        // $mahasiswa = Mahasiswa::find(1);
+        $dosen = Dosen::where('id',1)->first();;
+        dd($dosen); //Pengecekan apakah data nya masuk
+
         $mahasiswaCollection = Mahasiswa::get();
 
         return view('admin.pages.user.index', compact('mahasiswaCollection'));
